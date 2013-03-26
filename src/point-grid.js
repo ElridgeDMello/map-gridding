@@ -1,5 +1,12 @@
 var points = new OpenLayers.Layer.PointGrid({
-    isBaseLayer: true, dx: 15, dy: 15
+    isBaseLayer: true, dx: 15, dy: 15,
+    styleMap: new OpenLayers.StyleMap({
+        pointRadius: 0.5,
+        strokeColor: "#3333ff",
+        strokeWidth: 1,
+        fillOpacity: 1,
+        graphicName: "square"
+    })
 });
 
 var map = new OpenLayers.Map({

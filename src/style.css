@@ -81,6 +81,12 @@ h6 {
     display: none;
 }
 
+.largemap {
+    width: 1024px;
+    height: 512px;
+    border: 1px solid #ccc;
+}
+
 #docs p {
     margin-bottom: 0.5em;
 }

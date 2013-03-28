@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>TPDtest7</name>
+<Region>
+  <LatLonAltBox>
+    <north>48.30467604022645400</north>
+    <south>47.86922263695662800</south>
+    <east>-101.82621802229870000</east>
+    <west>-102.14415269166381000</west>
+  </LatLonAltBox>
+</Region>
+<GroundOverlay>
+  <name>kml_image_L1_0_0</name>
+  <Icon>
+    <href>kml_image_L1_0_0.jpg</href>
+  </Icon>
+  <LatLonBox>
+    <north>48.30467604022645400</north>
+    <south>47.86922263695662800</south>
+    <east>-101.82621802229870000</east>
+    <west>-102.14415269166381000</west>
+  </LatLonBox>
+  <Region>
+    <LatLonAltBox>
+      <north>48.30467604022645400</north>
+      <south>47.86922263695662800</south>
+      <east>-101.82621802229870000</east>
+      <west>-102.14415269166381000</west>
+    </LatLonAltBox>
+    <Lod>
+      <minLodPixels>64</minLodPixels>
+    </Lod>
+  </Region>
+</GroundOverlay>
+</Document>
+</kml>

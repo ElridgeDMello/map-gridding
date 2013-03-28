@@ -1,7 +1,7 @@
-var lon = -112.169 ;//7.26332822974839140;
-var lat = 36.099;//8.35377187043956230;
+var lon = -101.82621802229870000;
+var lat = 47.86922263695662800;
 
-var zoom = 11; //7;
+var zoom = 7;
 var map, layer;
 
 function init(){
@@ -16,7 +16,7 @@ function init(){
         'GridLayer',
         {
             protocol: new OpenLayers.Protocol.HTTP({
-                url: 'data/kml/lines.kml',
+                url: 'data/TPDtest7.kml',
                 format: new OpenLayers.Format.KML({
                     extractStyles: true,
                     extractAttributes: true,

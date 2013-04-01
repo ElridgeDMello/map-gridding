@@ -23,12 +23,50 @@ function init(){
         }
     );
 
-    var vector_style = new OpenLayers.Style({
-        'fillColor': '#669933'});    
+    var vector_style = new OpenLayers.Style();
+    var rule_county_low = new OpenLayers.Rule({
+        filter: new OpenLayers.Filter.Comparison({
+            type: OpenLayers.Filter.Comparison.LESS_THAN,
+            property: 'COUNTY',
+            value: 25
+        }),
+        symbolizer: {
+            fillColor: "#ababab",
+            fillOpacity: .8,
+        }
+    });
+
+    var rule_county_mid = new OpenLayers.Rule({
+        filter: new OpenLayers.Filter.Comparison({
+            type: OpenLayers.Filter.Comparison.BETWEEN,
+            property: 'COUNTY',
+            lowerBoundary: 26,
+            upperBoundary: 100
+        }),
+        symbolizer: {
+            fillColor: "#aaee77",
+            fillOpacity: .8,
+        }
+    });
+
+    var rule_county_high = new OpenLayers.Rule({
+        filter: new OpenLayers.Filter.Comparison({
+            type: OpenLayers.Filter.Comparison.GREATER_THAN,
+            property: 'COUNTY',
+            value: 100
+        }),
+        symbolizer: {
+            fillColor: "#BD1922",
+            fillOpacity: .8,
+        }
+    });
+
+    vector_style.addRules([rule_county_low, rule_county_mid, rule_county_high]);
+
     var vector_style_map = new OpenLayers.StyleMap({
         'default': vector_style    
     });
     vector_layer.styleMap = vector_style_map;
 
-   map.addLayer(vector_layer);
+    map.addLayer(vector_layer);
 }

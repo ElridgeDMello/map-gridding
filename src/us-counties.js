@@ -21,6 +21,14 @@ function init(){
             }),
             strategies: [new OpenLayers.Strategy.Fixed()]        
         }
-    ); 
+    );
+
+    var vector_style = new OpenLayers.Style({
+        'fillColor': '#669933'});    
+    var vector_style_map = new OpenLayers.StyleMap({
+        'default': vector_style    
+    });
+    vector_layer.styleMap = vector_style_map;
+
    map.addLayer(vector_layer);
 }

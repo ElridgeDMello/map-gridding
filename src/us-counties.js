@@ -23,45 +23,37 @@ function init(){
         }
     );
 
+    var ranges = [        
+        { minValue: 0, maxValue: 100, color: '#d10000' },
+        { minValue: 101, maxValue: 300, color: '#ff6622' },
+        { minValue: 301, maxValue: 500, color: '#ffda21' },
+        { minValue: 501, maxValue: 700, color: '#33dd00' },
+        { minValue: 701, maxValue: 900, color: '#1133cc' },
+        { minValue: 901, maxValue: 1100, color: '#220066' },
+        { minValue: 1101, maxValue: 150000, color: '#330044'}
+    ];
+
     var vector_style = new OpenLayers.Style();
-    var rule_county_low = new OpenLayers.Rule({
-        filter: new OpenLayers.Filter.Comparison({
-            type: OpenLayers.Filter.Comparison.LESS_THAN,
-            property: 'COUNTY',
-            value: 25
-        }),
-        symbolizer: {
-            fillColor: "#ababab",
-            fillOpacity: .8,
-        }
-    });
+    var rules = [];
 
-    var rule_county_mid = new OpenLayers.Rule({
-        filter: new OpenLayers.Filter.Comparison({
-            type: OpenLayers.Filter.Comparison.BETWEEN,
-            property: 'COUNTY',
-            lowerBoundary: 26,
-            upperBoundary: 100
-        }),
-        symbolizer: {
-            fillColor: "#aaee77",
-            fillOpacity: .8,
-        }
-    });
+    for (var i=0; i < ranges.length; i++) {
+        var rangeObject = ranges[i];
+        var rule = new OpenLayers.Rule({
+            filter: new OpenLayers.Filter.Comparison({
+                type: OpenLayers.Filter.Comparison.BETWEEN,
+                property: 'CENSUSAREA',
+                lowerBoundary: rangeObject.minValue,
+                upperBoundary: rangeObject.maxValue
+            }),
+            symbolizer: {
+                fillColor: rangeObject.color,
+                fillOpacity: .8,
+            }
+        });
+        rules.push(rule);
+    }
 
-    var rule_county_high = new OpenLayers.Rule({
-        filter: new OpenLayers.Filter.Comparison({
-            type: OpenLayers.Filter.Comparison.GREATER_THAN,
-            property: 'COUNTY',
-            value: 100
-        }),
-        symbolizer: {
-            fillColor: "#BD1922",
-            fillOpacity: .8,
-        }
-    });
-
-    vector_style.addRules([rule_county_low, rule_county_mid, rule_county_high]);
+    vector_style.addRules(rules);
 
     var vector_style_map = new OpenLayers.StyleMap({
         'default': vector_style    

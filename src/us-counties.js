@@ -16,7 +16,7 @@ function init(){
         'GridLayer',
         {
             protocol: new OpenLayers.Protocol.HTTP({
-                url: 'data/gz_2010_us_050_00_500k.json',
+                url: 'data/gz_2010_us_050_00_5m.json',
                 format: new OpenLayers.Format.GeoJSON({})
             }),
             strategies: [new OpenLayers.Strategy.Fixed()]        
@@ -69,4 +69,33 @@ function init(){
     vector_layer.styleMap = vector_style_map;
 
     map.addLayer(vector_layer);
+
+}
+
+function findMinMaxArea() {
+
+    var features = map.layers[1].features;
+
+    console.log('in the find min max function, features.length: ' + features.length);
+        
+    var minMax = {
+        min: 10000000, 
+        max:0
+    };
+
+    for (var i=0; i < features.length; i++) {
+        var feature = features[i];
+        var area = feature.attributes.CENSUSAREA;
+        if (minMax.min > area) {
+            minMax.min = area;
+        }
+        if (minMax.max < area) {
+            minMax.max = area;
+        }    
+    }
+
+    console.log('min Area: ' + minMax.min);
+    console.log('max Area: ' + minMax.max);
+
+//    return minMax;
 }

@@ -16,7 +16,7 @@ function init(){
         'GridLayer',
         {
             protocol: new OpenLayers.Protocol.HTTP({
-                url: 'data/gz_2010_us_050_00_5m.json',
+                url: 'data/gz_2010_us_050_00_500k.json',
                 format: new OpenLayers.Format.GeoJSON({})
             }),
             strategies: [new OpenLayers.Strategy.Fixed()]        

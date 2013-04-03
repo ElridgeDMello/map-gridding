@@ -24,13 +24,13 @@ function init(){
     );
 
     var ranges = [        
-        { minValue: 0, maxValue: 100, color: '#d10000' },
-        { minValue: 101, maxValue: 300, color: '#ff6622' },
-        { minValue: 301, maxValue: 500, color: '#ffda21' },
-        { minValue: 501, maxValue: 700, color: '#33dd00' },
-        { minValue: 701, maxValue: 900, color: '#1133cc' },
-        { minValue: 901, maxValue: 1100, color: '#220066' },
-        { minValue: 1101, maxValue: 150000, color: '#330044'}
+        { minValue: 0, maxValue: 25, color: '#d10000' },
+        { minValue: 26, maxValue: 75, color: '#ff6622' },
+        { minValue: 76, maxValue: 200, color: '#ffda21' },
+        { minValue: 201, maxValue: 500, color: '#33dd00' },
+        { minValue: 501, maxValue: 1100, color: '#1133cc' },
+        { minValue: 1101, maxValue: 2200, color: '#220066' },
+        { minValue: 2201, maxValue: 150000, color: '#330044'}
     ];
 
     var vector_style = new OpenLayers.Style();
